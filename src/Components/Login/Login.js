@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { FirebaseContext } from '../../store/FirebaseContext';
+import { FirebaseContext } from '../../store/Context';
 import Logo from '../../olx-logo.png';
 import './Login.css';
 import { useHistory } from 'react-router-dom';
@@ -10,6 +10,7 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('')
   const { firebaseApp } = useContext(FirebaseContext)
+  
   const handleLogin = (e) => {
     e.preventDefault();
     firebaseApp.auth().signInWithEmailAndPassword(email, password).then(() => {
